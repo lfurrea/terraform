@@ -122,6 +122,7 @@ func (n *EvalVariableBlock) Eval(ctx EvalContext) (interface{}, error) {
 
 	// Get our configuration
 	rc := *n.Config
+	log.Printf("module variable config is %#v", rc.Config)
 	for k, v := range rc.Config {
 		vKind := reflect.ValueOf(v).Type().Kind()
 

@@ -330,7 +330,7 @@ func TestRawConfig_unknownPartialList(t *testing.T) {
 	expected := map[string]interface{}{"foo": []interface{}{UnknownVariableValue}}
 
 	if !reflect.DeepEqual(actual, expected) {
-		t.Fatalf("bad: %#v", actual)
+		t.Fatalf("wrong result %#v; want %#v", actual, expected)
 	}
 
 	expectedKeys := []string{"foo"}

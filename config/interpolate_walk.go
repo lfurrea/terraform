@@ -245,6 +245,10 @@ func (w *interpolationWalker) splitSlice() {
 
 	split := false
 	for _, val := range s {
+		if val == UnknownVariableValue {
+			// A list containing an unknown is itself unknown
+			w.replaceCurrent(reflect.ValueOf(UnknownVariableValue))
+		}
 		if varVal, ok := val.(ast.Variable); ok && varVal.Type == ast.TypeList {
 			split = true
 		}
